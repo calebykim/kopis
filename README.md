@@ -8,12 +8,14 @@ Kopis can be used to:
 
 Kopis provides this data by supporting custom user queries via command line. 
 
-Essentially, users can ask Kopis for the memory, cpus, disk, or any attribute of all applications with a certain id-substring, a label, environment variable, etc. This CLI is a versatile tool that can search for any key(s), value(s), or key-value pair(s) of the Marathon application JSON objects and render the results in useful ways. 
+Essentially, users can ask Kopis for the memory, cpus, disk, or any attribute of all applications with a certain id-substring, a label, environment variable, etc. This CLI is a flexible tool that can search for any key(s), value(s), or key-value pair(s) of the Marathon application JSON objects and render the results in useful ways. 
 
 Some use cases:
 1. Sum the resource usage of a certain service across all environment. 
 2. Find all applications that are in enviornment '/mobile' and are using .1 cpus, print the results in CSV/JSON format.
 3. Return the healthCheck protocol of app with id: '/myapp'.
+
+Kopis is versatile, and with some Bash it is an even more powerful CLI that can used to effectively sift through and extract Marathon config data to better manage Mesos clusters. 
 
 ### Kopis Implementation and Flow
 When Kopis is first run, the program pulls all the Marathon app data from Marathons '/v2/apps' endpoint. It then caches the data in a local JSON file for a configured TTL for efficiency, and runs its search through the local file. 
