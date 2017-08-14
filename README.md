@@ -42,15 +42,15 @@ Kopis utilizes a deep recursive search algorithm to find key/value(s) in the mut
    
    The CACHE_TIMEOUT is the minute interval Kopis will automatically reload its cached Marathon data.
    
- ##### Installation done!
+Installation done!
     
 ## User Guide
- #### Example query:
+ Example query:
  
         kopis search 'id=*app* and (mem=1024 or mem=2048)'
  This query finds all applications that have 'app' in their ids and use either 1024 or 2048 MiB. 
  
- #### Command line Syntax:
+ Command line Syntax:
     The kopis command is 3 parts:
     
     1) 'kopis' - to run the executable
@@ -74,7 +74,7 @@ Kopis utilizes a deep recursive search algorithm to find key/value(s) in the mut
        
 
         
-#### Query Syntax
+ Query Syntax
 
   + Surround entire query with single quotes and any tokens you don't want split with double quotes.
                 
@@ -94,31 +94,31 @@ Kopis utilizes a deep recursive search algorithm to find key/value(s) in the mut
 
 ### Search Features
 
-  #### A query can consist of a key, a value, or a key value pair.
+   A query can consist of a key, a value, or a key value pair.
    
     kopis search 'docker' # searches for 'docker' as a key or a value
     kopis search 'cpus=.1' # searches for key:'cpus' that has value .1
   
-  #### Wildcard Id matching can be used to find applications with matching ID substrings using '*'
+   Wildcard Id matching can be used to find applications with matching ID substrings using '*'
   
     kopis search 'id=/dev/*/service' # finds ids that start with '/dev/' and end with '/service'
     
-  #### You can join queries using 'and' or 'or' operators with parentheses as well.
+   You can join queries using 'and' or 'or' operators with parentheses as well.
   
     kopis search 'docker and (cpus=.1 or mem=512)' # searches for apps with docker and that have either .1 cpu or 512 mem
     
-  #### Search for specific nested keys using dot notation. 
+   Search for specific nested keys using dot notation. 
   
     kopis search 'healthChecks.protocol=HTTP' # searches nested 'protocol' key in 'healthChecks' object
    
-  #### Comparator Operators: '<', '>', '<=', '>=', '!=', '=', and '!' are supported.
+   Comparator Operators: '<', '>', '<=', '>=', '!=', '=', and '!' are supported.
     
     kopis search '(cpus>.1 or mem<=1024) and !docker ' # searches for applications that have cpus greater than .1, mem less than or equal to 1024, and that do not contain 'docker' in any field
     
  
  ### Data Rendering Features
  
-   #### -s, -sum option returns the total resource usage of result or sum of json, csv keys
+    -s, -sum option returns the total resource usage of result or sum of json, csv keys
     Input: kopis search 'id=*dev*' -s -j cpus mem disk
     Output:
       {
@@ -128,7 +128,7 @@ Kopis utilizes a deep recursive search algorithm to find key/value(s) in the mut
        }
     *prints sum cpus, mem, and disk of matching applications 
     
-   #### -j, -json option outputs matching applications in json with given keys (space seperated)
+   -j, -json option outputs matching applications in json with given keys (space seperated)
    
     Input: kopis search 'id=*dev*' -j cpus mem disk -v 
     Output:
@@ -148,7 +148,7 @@ Kopis utilizes a deep recursive search algorithm to find key/value(s) in the mut
             }, ...
         ]
     * without -v argument, result will print in one line    
-   #### -c, -csv option outputs matching applications in csv format with given keys (space seperated)
+    -c, -csv option outputs matching applications in csv format with given keys (space seperated)
    
     Input: kopis search 'id=*dev*' -c cpus mem disk
     
@@ -160,7 +160,7 @@ Kopis utilizes a deep recursive search algorithm to find key/value(s) in the mut
         
      *You can redirect the output into .csv file using bash
      
-  #### -u, -url option outputs urls of the applications' Marathon configuration pages
+   -u, -url option outputs urls of the applications' Marathon configuration pages
   
     Input: kopis search 'id=*dev*' -u
     
@@ -171,7 +171,7 @@ Kopis utilizes a deep recursive search algorithm to find key/value(s) in the mut
         
      *Click urls from terminal with cmd/ctrl click
 
-  #### -f, -full option outputs entire applications' configuration jsons
+   -f, -full option outputs entire applications' configuration jsons
   
     Input: kopis search 'id=*dev*' -f -v
     Output:
