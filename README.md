@@ -1,18 +1,30 @@
 # Kopis
 A CLI tool to search and render the metadata of Marathon-deployed Mesos applications.  
 
-## Wiki
-https://wiki.audaxhealth.com/display/ENG/Kopis%3A+Marathon-Mesos+Search+Tool
+## Description
+Kopis can be used to:
+1. Take resource inventory of Marathon orchestrated Mesos clusters
+2. Identify differences in Marathon application configurations 
 
+Kopis provides this data by supporting custom user queries via command line. 
+
+Essentially, users can ask Kopis for the memory, cpus, disk, or any attribute of all applications with a certain id-substring, a label, environment variable, etc. This CLI is a versatile tool that can search for any key(s), value(s), or key-value pair(s) of the Marathon application JSON objects and render the results in useful ways. 
+
+Some use cases:
+1. Sum the resource usage of a certain service across all environment. 
+2. Find all applications that are in enviornment '/mobile' and are using .1 cpus, print the results in CSV/JSON format.
+3. Return the healthCheck protocol of app with id: '/myapp'.
+
+### Kopis Implementation and Flow
+When Kopis is first run, the program pulls all the Marathon app data from Marathons '/v2/apps' endpoint. It then caches the data in a local JSON file for a configured TTL for efficiency, and runs its search through the local file. 
+
+Kopis utilizes a deep recursive search algorithm to find key/value(s) in the mutli-nested json object pulled from Marathon's REST api. Upon finding the target item, Kopis prints the results in STDOUT in the user's requested format. 
+        
 ## Installation:
 ### Requirement: **python3**
 
 1) Install Kopis:
-
-        http:
-            pip3 install git+https://github.com/AudaxHealthInc/kopis.git
-        ssh:
-            pip3 install git+ssh://git@github.com:AudaxHealthInc/kopis.git
+       To be released.
         
 2) Configure Marathon instance (required) and other optional settings.
         
