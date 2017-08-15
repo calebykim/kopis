@@ -15,7 +15,7 @@ Some use cases:
 2. Find all applications that are in enviornment '/mobile' and are using .1 cpus, print the results in CSV/JSON format.
 3. Return the healthCheck protocol of app with id: '/myapp'.
 
-Kopis is versatile, and with some Bash it is an even more powerful CLI that can used to effectively sift through and extract Marathon config data to better manage Mesos clusters. 
+Kopis is versatile. With some Bash, it is an even more powerful CLI that can used to effectively sift through and extract Marathon config data to better manage Mesos clusters. 
 
 ### Kopis Implementation and Flow
 When Kopis is first run, the program pulls all the Marathon app data from Marathons '/v2/apps' endpoint. It then caches the data in a local JSON file for a configured TTL for efficiency, and runs its search through the local file. 
