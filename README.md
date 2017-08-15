@@ -18,7 +18,7 @@ Some use cases:
 Kopis is versatile. With some Bash, it is an even more powerful CLI that can used to effectively sift through and extract Marathon config data to better manage Mesos clusters. 
 
 ### Kopis Implementation and Flow
-When Kopis is first run, the program pulls all the Marathon app data from Marathons '/v2/apps' endpoint. It then caches the data in a local JSON file for a configured TTL for efficiency, and runs its search through the local file. 
+When Kopis is first run, the program pulls all the Marathon app data from Marathon's '/v2/apps' endpoint. It then caches the data in a local JSON file for a configured TTL and runs its search through the local file. 
 
 Kopis utilizes a deep recursive search algorithm to find key/value(s) in the mutli-nested json object pulled from Marathon's REST api. Upon finding the target item, Kopis prints the results in STDOUT in the user's requested format. 
         
