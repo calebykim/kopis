@@ -116,7 +116,7 @@ Installation done!
     kopis search '(cpus>.1 or mem<=1024) and !docker ' # searches for applications that have cpus greater than .1, mem less than or equal to 1024, and that do not contain 'docker' in any field
     
  
- ### Data Rendering Features
+### Data Rendering Features
  
     -s, -sum option returns the total resource usage of result or sum of json, csv keys
     Input: kopis search 'id=*dev*' -s -j cpus mem disk
